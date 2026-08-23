@@ -1,15 +1,23 @@
-# AI Interview Practice
+# Revise with AI
 
-An AI-powered web app that turns any interview questions page into an interactive practice session. Paste a URL, answer questions by typing or speaking, and get instant AI feedback on your answers.
+An AI-powered revision helper. Paste a link to any article, tutorial, or notes page on a topic you're studying, and the app turns it into an interactive Q&A practice session — answer by typing or speaking, and get instant AI feedback.
 
 **Live demo:** [ai-revision-app.vercel.app](https://ai-revision-9le20zcb3-ishita-manglas-projects.vercel.app)
 
 ## Features
 
-- **URL-based question extraction** — Paste a link to any interview questions article (GeeksforGeeks, blogs, tutorials, etc.) and the app automatically extracts question-answer pairs using AI, regardless of the page's structure.
+- **URL-based question extraction** —Paste a link to any page with real written content (not just pre-formatted Q&A pages) and the app uses AI to read it and generate/extract relevant questions and answers, regardless of the page's structure.
 - **Voice input** — Speak your answer out loud instead of typing, using the browser's built-in speech recognition.
 - **AI-powered feedback** — Every answer is evaluated by Google Gemini, which returns a score out of 10 and specific feedback on what was correct and what was missing.
 - **Full practice loop** — Move through every extracted question one at a time, with your answer, the AI feedback, and the reference answer shown side by side.
+
+## Try it with these sample links
+
+| Topic | URL |
+|---|---|
+| Full Stack Dev Interview Q&A (already formatted) | `https://www.geeksforgeeks.org/html/full-stack-developer-interview-questions-and-answers/` |
+| Java OOPs Concepts (plain article) | `https://www.geeksforgeeks.org/java/object-oriented-programming-oops-concept-in-java/` |
+| JavaScript Interview Questions | `https://www.simplilearn.com/tutorials/javascript-tutorial/javascript-interview-questions` |
 
 ## How it works
 
