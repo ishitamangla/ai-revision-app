@@ -18,7 +18,7 @@ function StartForm() {
     setError("");
 
     try {
-      const response = await axios.post("http://localhost:5000/api/extract", {
+      const response = await axios.post("https://ai-revision-app-9pb7.onrender.com/api/extract", {
         url: url,
       });
 
