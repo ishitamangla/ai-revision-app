@@ -43,13 +43,13 @@ function StartForm() {
     <div className="start-card">
       <input
         type="text"
-        placeholder="Paste interview experience URL"
+        placeholder="Paste URL of the site"
         value={url}
         onChange={(e) => setUrl(e.target.value)}
       />
 
        <button onClick={handleStart} disabled={loading}>
-        {loading ? "Loading..." : "Start Interview"}
+        {loading ? "Loading..." : "Start Revision"}
       </button>
 
       {error && <p style={{ color: "red" }}>{error}</p>}
