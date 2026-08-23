@@ -27,7 +27,7 @@ function InterviewPage() {
     setLoading(true);
 
     try {
-      const response = await axios.post("http://localhost:5000/api/check-answer", {
+      const response = await axios.post("https://ai-revision-app-9pb7.onrender.com/api/check-answer", {
         question: currentQuestion.question,
         correctAnswer: currentQuestion.answer,
         userAnswer: userAnswer,
