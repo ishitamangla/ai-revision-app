@@ -20,7 +20,7 @@ function ResultPage() {
       return;
     }
 
-    navigate("/interview", {
+    navigate("/revision", {
       state: {
         questions,
         currentIndex: currentIndex + 1,

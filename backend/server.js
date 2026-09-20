@@ -44,26 +44,32 @@ app.post("/api/extract", async (req, res) => {
     const model = genAI.getGenerativeModel({ model: "gemini-3.5-flash-lite" });
 
     const prompt = `
-    You are given raw text extracted from a webpage containing interview questions and answers.
+You are given raw text extracted from a webpage. This text could be:
+1. A page that already has clear question-answer pairs
+2. A plain article/tutorial with headings and paragraphs explaining concepts (no explicit questions)
+3. A mix of both
 
-    Extract or generate interview question-answer pairs from this text.
+Your task: Generate a set of interview question-answer pairs that would help someone revise this topic — regardless of whether the source text has explicit questions or not.
 
-    IMPORTANT RULES:
-    - Every question must be phrased as a complete, proper interview question (e.g., "What is a constructor in Java?" or "Explain the use of constructors in Java."), NEVER just a topic name or single word like "Constructor".
-    - If the source text only has a heading/topic name (not a full question), rewrite it into a proper question using that topic.
-    - Answers should be clear and based on the surrounding content.
+IMPORTANT RULES:
+- If the text already has questions, extract them as-is (keep the answer based on the given explanation).
+- If the text only has headings/topic names (e.g. "Constructors", "Inheritance"), convert each into a full interview question (e.g. "What is a constructor in Java?").
+- If the text is plain prose/paragraphs explaining a concept with no heading or question at all, READ the explanation and generate one or more relevant interview questions whose answers come from that paragraph's content. Do not skip content just because it isn't already phrased as a question.
+- Every question must be a complete, proper interview question — never a topic name or single word.
+- Answers should be clear, factually grounded in the surrounding text, and 2-4 sentences long.
+- Generate between 5 and 15 questions depending on how much distinct content is in the text — don't pad with repetitive or trivial questions.
 
-    Return ONLY valid JSON, nothing else, no markdown code fences, no explanation.
-    Format exactly like this:
-    [
-    {"question": "...", "answer": "..."},
-    {"question": "...", "answer": "..."}
-    ]
+Return ONLY valid JSON, nothing else, no markdown code fences, no explanation.
+Format exactly like this:
+[
+{"question": "...", "answer": "..."},
+{"question": "...", "answer": "..."}
+]
 
-    Webpage text:
-    ${pageText}
-    `;
-
+Webpage text:
+${pageText}
+`;
+    console.log(pageText);
     const result = await model.generateContent(prompt);
     let responseText = result.response.text();
 

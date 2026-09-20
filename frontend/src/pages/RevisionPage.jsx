@@ -4,7 +4,8 @@ import axios from "axios";
 import QuestionCard from "../components/QuestionCard";
 import AnswerBox from "../components/AnswerBox";
 
-function InterviewPage() {
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
+function RevisionPage() {
   const location = useLocation();
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
@@ -14,7 +15,7 @@ function InterviewPage() {
 
   if (questions.length === 0) {
     return (
-      <div className="interview-screen">
+      <div className="revision-screen">
         <p>No questions found. Please start again.</p>
         <button onClick={() => navigate("/")}>Go to Start</button>
       </div>
@@ -27,7 +28,7 @@ function InterviewPage() {
     setLoading(true);
 
     try {
-      const response = await axios.post("https://ai-revision-app-9pb7.onrender.com/api/check-answer", {
+      const response = await axios.post(`${API_URL}/api/check-answer`,{
         question: currentQuestion.question,
         correctAnswer: currentQuestion.answer,
         userAnswer: userAnswer,
@@ -50,7 +51,7 @@ function InterviewPage() {
   };
 
   return (
-    <div className="interview-screen">
+    <div className="revision-screen">
       <p>
         Question {currentIndex + 1} of {questions.length}
       </p>
@@ -62,4 +63,4 @@ function InterviewPage() {
   );
 }
 
-export default InterviewPage;
+export default RevisionPage;

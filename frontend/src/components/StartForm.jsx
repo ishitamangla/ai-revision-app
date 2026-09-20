@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
 function StartForm() {
   const [url, setUrl] = useState("");
   const [loading, setLoading] = useState(false);
@@ -18,7 +19,7 @@ function StartForm() {
     setError("");
 
     try {
-      const response = await axios.post("https://ai-revision-app-9pb7.onrender.com/api/extract", {
+      const response = await axios.post(`${API_URL}/api/extract`, {
         url: url,
       });
 
@@ -30,8 +31,8 @@ function StartForm() {
         return;
       }
 
-      // Questions ko InterviewPage tak pahunchao
-      navigate("/interview", { state: { questions, currentIndex: 0 } });
+      //give questions to revision page
+      navigate("/revision", { state: { questions, currentIndex: 0 } });
     } catch (err) {
       console.error(err);
       setError("Something went wrong. Check the URL and try again.");

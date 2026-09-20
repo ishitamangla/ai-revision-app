@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import StartPage from "./pages/StartPage";
-import InterviewPage from "./pages/InterviewPage";
+import RevisionPage from "./pages/RevisionPage";
 import ResultPage from "./pages/ResultPage";
 
 function App() {
@@ -8,7 +8,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<StartPage />} />
-        <Route path="/interview" element={<InterviewPage />} />
+        <Route path="/revision" element={<RevisionPage />} />
         <Route path="/result" element={<ResultPage />} />
       </Routes>
     </BrowserRouter>
