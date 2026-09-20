@@ -4,7 +4,7 @@ import axios from "axios";
 import QuestionCard from "../components/QuestionCard";
 import AnswerBox from "../components/AnswerBox";
 
-const API_URL = import.meta.env.API_URL || "http://localhost:5000";
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
 function RevisionPage() {
   const location = useLocation();
   const navigate = useNavigate();
