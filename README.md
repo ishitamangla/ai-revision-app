@@ -2,7 +2,7 @@
 
 An AI-powered revision helper. Paste a link to any article, tutorial, or notes page on a topic you're studying, and the app turns it into an interactive Q&A practice session — answer by typing or speaking, and get instant AI feedback.
 
-**Live demo:** [ai-revision-app.vercel.app](https://ai-revision-9le20zcb3-ishita-manglas-projects.vercel.app)
+**Live demo:** [ai-revision-app.vercel.app](https://ai-revision-app.vercel.app/)
 
 ## Features
 
